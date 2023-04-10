@@ -1,0 +1,26 @@
+	body{
+  background:#ECF0F1;
+}
+
+.bgWhite{
+  background:#fff;
+  box-shadow:10px 10px 15px 0px #cacaca;
+}
+
+.title{
+  font-weight:600;
+  margin-top:20px;
+  font-size:24px
+}
+
+.customBtn{
+  border-radius:0px;
+  padding:10px;
+}
+
+form input{
+  display:inline-block;
+  width:50px;
+  height:50px;
+  text-align:center;
+}

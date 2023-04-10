@@ -1,0 +1,39 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agro-Help</title>
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="stylesheet" href="{% static 'admin/add-basic.css' %}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">ADD BASIC INFORMATION</div>
+            <form action="" method="post" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                <div class="input_field">
+                    <label>Title</label>
+                    {% render_field form.title class="input" %}
+                </div>
+                <div class="input_field">
+                    <label>Description</label>
+                    {% render_field form.description class="input" %}
+                </div>
+                <div class="input_field">
+                    <label>Published Date and Time</label>
+                    {% render_field form.publishedDateTime class="input" %}
+                </div>
+                 <div class="input_field">
+                    <label>Documents</label>
+                  {% render_field form.documents class="input" %}
+                </div>
+                <div class="input_field">
+                    <input type="submit" value="Save" class="btn">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

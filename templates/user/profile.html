@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro-Help</title>
+    {% load static %}
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <!-- ===== ===== Custom Css ===== ===== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'user/profile.css' %}">
+    <!-- ===== ===== Remix Font Icons Cdn ===== ===== -->
+    <link rel="stylesheet" href="fonts/remixicon.css">
+</head>
+
+<body>
+    <!-- ===== ===== Body Main-Background ===== ===== -->
+    <span class="main_bg">
+
+        </span>
+
+
+    <!-- ===== ===== Main-Container ===== ===== -->
+    <div class="container">
+        <!-- ===== ===== Header===== ===== -->
+        <header class="header">
+            <div class="brandLogo">
+                <figure><img src="{% static 'images/logo.png' %}" alt="logo" width="40px" height="40px"></figure>
+                <span>AgroHelp</span>
+            </div>
+        </header>
+
+
+        <!-- ===== ===== User Main-Profile ===== ===== -->
+        <section class="userProfile card">
+            <div class="profile">
+                <figure><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="profile" width="250px" height="250px"></figure>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== Work & Skills Section ===== ===== -->
+        <section class="work_skills card">
+
+            <!-- ===== ===== Work Contaienr ===== ===== -->
+
+
+            <!-- ===== ===== Skills Contaienr ===== ===== -->
+            <div class="skills">
+                <h1 class="heading">Additional Setting</h1>
+                <ul>
+                    <li style="--i:0"><a href="#">Privacy</a></li>
+                    <li style="--i:1"><a href="#">Security</a></li>
+                    <li style="--i:2"><a href="#">Default</a></li>
+                    <li style="--i:3"><a href="#">Settings</a></li>
+                    <li style="--i:3"><a href="{% url 'emailUpdate' %}">Change Email</a></li>
+                    <li style="--i:3"><a href="{% url 'changeNumber' %}">Change Number</a></li>
+                    <li style="--i:3"><a href="{% url 'grassCutterRegistration' %}">Are you a grass cutter ?</a></li>
+                    <li style="--i:4"><a href="{% url 'userLogout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== User Details Sections ===== ===== -->
+        <section class="userDetails card">
+            <div class="userName">
+                <h1 class="name">{{request.user.first_name}}</h1>
+                <div class="map">
+                    <i class="ri-map-pin-fill ri"></i>
+                    <span>{{customer.address}}</span>
+                </div>
+           <p></p>
+            </div>
+
+
+            <div class="btns">
+                <ul>
+                    <li class="sendMsg active">
+                        <i class="ri-check-fill ri"></i>
+                        <a href="{% url 'myOrders' %}">My Orders</a>
+                    </li>
+                    <li class="sendMsg active">
+                        <i class="ri-check-fill ri"></i>
+                        <a href="{% url 'myCart' %}">My cart</a>
+                    </li>
+                    <li class="sendMsg active">
+                        <i class="ri-check-fill ri"></i>
+                        <a href="#">My Applications</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== Timeline & About Sections ===== ===== -->
+        <section class="timeline_about card">
+            <div class="tabs">
+                <ul>
+                    <li class="timeline">
+                        <i class="ri-eye-fill ri"></i>
+
+                    </li>
+
+                    <li class="about active">
+                        <i class="ri-user-3-fill ri"></i>
+                        <span>About</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contact_info">
+                <h1 class="heading">Contact Information</h1>
+                <ul>
+                    <li class="phone">
+                        <h1 class="label">Phone:</h1>
+                        <span class="info">{{request.user.username}}</span>
+                    </li>
+
+                    <li class="address">
+                        <h1 class="label">Address:</h1>
+                        <span class="info">{{customer.address}} <br></span>
+                    </li>
+
+                    <li class="email">
+                        <h1 class="label">E-mail:</h1>
+                        <span class="info">{{request.user.email}}</span>
+                    </li>
+
+                    <li class="site">
+                        <h1 class="label">Pincode:</h1>
+                        <span class="info">{{customer.pincode}}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!--<div class="basic_info">
+                <h1 class="heading">Basic Information</h1>
+                <ul>
+                    <li class="birthday">
+                        <h1 class="label">Date of Birth:</h1>
+                        <span class="info">Dec 25, 2000</span>
+                    </li>
+
+                    <li class="sex">
+                        <h1 class="label">Gender:</h1>
+                        <span class="info">Male</span>
+                    </li>
+                </ul>
+            </div>-->
+
+            <li class="sendMsg active">
+                <i class="ri-check-fill ri"></i>
+
+            </li>
+
+        </section>
+</body>
+
+</html>

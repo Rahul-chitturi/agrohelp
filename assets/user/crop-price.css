@@ -1,0 +1,17 @@
+  body
+        {
+            background: #58D68D;
+             padding: 20px;
+        }
+        table
+        {
+            width: 100%;
+
+        }
+        tr td
+        {
+            font-size: 18px;
+            background: #fff;
+            padding: 2px;
+
+        }

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Agro-Help</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body {
+    background:url("https://images.unsplash.com/photo-1620200423727-8127f75d7f53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat 0% 87% fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+}
+ 
+.wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 32%;
+    padding: 0 20px;
+}
+.head {
+    font-size: 38px;
+    padding: 20px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.sub-main{
+    position:relative;
+}
+ 
+.sub-main input[type="email"],.sub-main input[type="email"]  {
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px 0px 18px 1px;
+    color: black;
+    padding: 10px 38px;
+    border: none;
+    border-radius: 2px;
+    width: 68%;
+}
+.sub-main input[type="submit"] {
+    color: white;
+    background: #084b1a;
+    border: none;
+    padding: 14px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin: 17px;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:0.5s all;
+     
+}
+.sub-main input[type="submit"]:hover {
+    background: #d9edf7;
+    color: black;
+    transition:0.5s all;
+     
+}
+@media (max-width: 767px) {
+    .head {
+      display: block; }
+    .sub-main{
+        display:block;
+        width: 100%;
+
+    }
+ @media (max-width: 800px) {
+    .inner {
+      display: block; }
+      .inner .image-holder {
+        width: 100%; }
+      .inner form {
+        width: 100%;
+        padding: 40px 0 30px; }
+
+
+@media (max-width: 770px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 75%;
+    font-family: monospace;
+    padding: 0 20px;
+}
+}
+
+@media (max-width: 320px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 100%;
+    padding: 0 20px;
+}
+}
+    .submit {
+      margin-top: 60px; } }
+        </style>
+
+    </head>
+    <body>
+      
+<div class="wrap">
+    <h2 class="head">Change Email ID</h2>
+        <div class="sub-main">    
+            <form action="{% url 'emailUpdate' %}" method="post">
+                {% csrf_token %}
+                <input placeholder="New Email ID" name="new_email" type="email" required="">
+                    <br>
+                <input placeholder="Confirm Email ID" name="confirm_email" type="email" required="">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="clear"></div>
+</div>
+    </body>
+</html>

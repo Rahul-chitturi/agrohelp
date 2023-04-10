@@ -1,0 +1,52 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+    <head>
+       {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agro-Help</title>
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="stylesheet" href="{% static 'admin/add-product-style.css'%}">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div class="wrapper" style="height:1000px;">
+            <div class="title">ADD PRODUCT</div>
+            <form action="" method="post" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                <div class="input_field">
+                    <label>Name</label>
+                    {% render_field form.name class="input" %}
+                </div>
+                <div class="input_field">
+                    <label>Description</label>
+                    {% render_field form.description class="textarea" %}
+                </div>
+                <div class="input_field">
+                    <label>Category</label>
+                    {% render_field form.category class="input" %}
+                </div>
+                <div class="input_field">
+                    <label>Price</label>
+                    {% render_field form.price class="input" %}
+                </div>
+                 <div class="input_field">
+                    <label>Quantity</label>
+                    {% render_field form.quantity class="input" %}
+                </div>
+
+                 <div class="input_field">
+                    <label>Product Image</label>
+                    {% render_field form.productImg class="input" %}
+                </div>
+
+                <div class="input_field">
+                    <input type="submit" value="Save" class="btn">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

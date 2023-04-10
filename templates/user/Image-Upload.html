@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agro-Help</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body {
+    background:url("https://images.unsplash.com/photo-1593746522544-a5c68e445d52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGllc2Vhc2UlMjBwbGFudHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60") no-repeat 0% 87% fixed;
+    background-size: cover;
+font-family: 'Poppins', sans-serif;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+}
+ 
+.wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 32%;
+    padding: 0 20px;
+}
+.head {
+    font-size: 38px;
+    padding: 20px;
+    color: white;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.sub-main{
+    position:relative;
+}
+ 
+.sub-main input[type="file"] {    
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px 0px 18px 1px;
+    color: black;
+    padding: 10px 38px;
+    border: 1px;
+    border-radius: 2px;
+    width: 68%;
+    font-family: 'Poppins', sans-serif;
+}
+.sub-main input[type="submit"] {
+    color: white;
+    background: #084b1a;
+    border: none;
+    padding: 14px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin: 17px;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:0.5s all;
+
+     
+}
+.sub-main input[type="submit"]:hover {
+    background: #d9edf7;
+    color: black;
+    transition:0.5s all;
+     
+}
+#img {
+    text-align:center !important;
+    color: white !important;
+    padding: 0px 0px;
+    font-size: 15px;
+}
+
+@media (max-width: 767px) {
+    .head {
+      display: block; }
+    .sub-main{
+        display:block;
+        width: 100%;
+
+    }
+ @media (max-width: 800px) {
+    .inner {
+      display: block; }
+      .inner .image-holder {
+        width: 100%; }
+      .inner form {
+        width: 100%;
+        padding: 40px 0 30px; }
+
+
+@media (max-width: 770px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 75%;
+    padding: 0 20px;
+}
+}
+
+@media (max-width: 320px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 100%;
+    padding: 0 20px;
+}
+}
+
+    .submit {
+      margin-top: 60px; } }
+        </style>
+
+    </head>
+    <body>
+      
+<div class="wrap">
+    <h2 class="head">Upload Image</h2>
+        <div class="sub-main">    
+            <form action="#" method="post">
+                <input type="file" id="img" name="img" accept="image/*">                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="clear"></div>
+</div>
+    </body>
+</html>

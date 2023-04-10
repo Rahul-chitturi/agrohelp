@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--divinectorweb.com-->
+<head>
+    <meta charset="UTF-8">
+    <title>Agro-Help</title>
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/my-cart.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h2 style="text-align: center;padding: 5px;font-weight:bold;">SHOPPING CART</h2>
+        {% if cart %}
+        <div class="project">
+            <div class="shop">
+                {% for i in cart %}
+                <div class="box">
+                    <img src="{{i.productName.productImg.url}}">
+                    <div class="content">
+                        <h3>{{i.productName.name}}</h3>
+                        <h4>Price: <span>&#8377 {{i.productName.price}}</span></h4>
+                        <p class="unit"  style="font-weight: bold;">Quantity: {{i.quantity}}
+                        <form action="{% url 'checkout' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="productID" value="{{i.productName.productID}}">
+                        <button type="submit" class="btn-area1"><i aria-hidden="true" class="fa fa-shopping-cart"></i> <span class="btn2">Buy</span></button>
+                        </form>
+                        <form action="{% url 'removeFromCart'%}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="cartID" value="{{i.cartID}}">
+                             <button type="submit" class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Remove</span></button>
+                        </form>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+            <div class="right-bar">
+                <p><span>Subtotal</span> <span>&#8377 {{subtotal}}</span></p>
+                <hr>
+                <p><span>Shipping</span> <span>&#8377 {{shippingCharge}}</span></p>
+                <hr>
+                <p><span>Total</span> <span>&#8377 {{total}}</span></p>
+
+            </div>
+
+        </div>
+
+        <nav>
+            <ul class="pagination justify-content-center mb-5">
+                {% if cart.has_previous %}
+                <li class="page-item" title="Previous">
+                    <a href="?page={{cart.previous_page_number}}" class="page-link rounded-circle m-1"><i class="fas fa-chevron-left text-primary"></i></a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active"><a href="#" class="page-link rounded-circle m-1">{{cart.number}}</a></li>
+                {% if cart.has_next %}
+                <li class="page-item" title="Next">
+                    <a href="?page={{cart.next_page_number}}" class="page-link rounded-circle m-1"><i class="fas fa-chevron-right text-primary"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% else %}
+        <p style="text-align:center;font-size:25px;font-weight:bolder;color:#fff;">No Items.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

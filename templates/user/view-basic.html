@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Agro-Help</title>
+        {% load static %}
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700" type="text/css" rel="stylesheet">
+        <style type="text/css">
+            body
+            {
+                font-family: 'Poppins', sans-serif;
+                font-family: 'Source Sans Pro', sans-serif;
+                background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://media.istockphoto.com/photos/closeup-hand-of-person-holding-abundance-soil-for-agriculture-or-picture-id1320100367?b=1&k=20&m=1320100367&s=170667a&w=0&h=OxITzbhVIOS5W87Rx-O4PgRqTk1iGP4MmhIarwIcuwU=);
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                width: 80%;
+                font-family: source sans pro , sans-serif;
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 1200px;
+            }
+            .scheme
+            {
+                margin-bottom: 40px;
+            }
+
+            .paragraph
+            {
+                border-left: 5px solid #24f860;
+            }
+            h2{
+                font-size: 2.0rem;
+                color: #DC7633;
+            }
+            hr{
+                border: 0;
+                height: 0;
+                /* border-top: 1px solid;
+                border-bottom: 1px; */
+            }
+            p
+            {
+                color: #fff;
+                font-weight: 600;
+            }
+            h3{
+                color: #DC7633;
+            }
+            a{
+                text-decoration: none;
+                color: #DC7633;
+                font-size: 20px;
+            }
+            .scheme button{
+                padding: 5px 30px;
+                border: none;
+                outline: none;
+                background-color:rgb(244, 103, 9);
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 20px;
+                display: block;
+                margin: 0 auto;
+                transition: 0.2s all;
+            }
+            span
+            {
+                color: #85C1E9;
+            }
+            @media(max-width:1250px)
+            {
+                .scheme{
+                    width:300px
+                }
+            }
+            @media(max-width:1100px)
+            {
+                .scheme{
+                    width: 70%;
+                }
+            }
+            @media(max-width:550px){
+                .scheme{
+                    margin: 20px 10px;
+                    width: 100%;
+                }
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="scheme">
+
+            <h2>{{data.title}}</h2>
+
+            <p>{{data.description}}</p>
+
+            <hr>
+            <form action="{% url 'viewBasicDocument' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value="{{data.agriID}}" name="agriID">
+                <button type="submit">View Content</button>
+            </form>
+
+            <hr>
+        </div>
+
+
+
+
+    </body>
+</html>

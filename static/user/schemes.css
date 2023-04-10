@@ -1,0 +1,96 @@
+            body
+            {
+                font-family: 'Poppins', sans-serif;
+                font-family: 'Source Sans Pro', sans-serif;
+                background-color:#F2F3F4;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                width: 100%;
+                font-family: source sans pro , sans-serif;
+                padding: 10px;
+                margin: 20px auto;
+                max-width: 1200px;
+            }
+            .heading
+            {
+                text-align: center;
+                color: #111;
+            }
+            .scheme
+            {
+
+                background-color: #E5E7E9;
+                padding: 5px 10px;
+                border-radius: 5px;
+                box-shadow: 5px 5px 18px #888888;
+                margin-bottom: 50px;
+
+            }
+            .date
+            {
+                color: #111;
+                letter-spacing: 0.2rem;
+                font-weight:bold;
+                font-size: 17px;
+            }
+            .paragraph
+            {
+                border-left: 6px solid #24f860;
+                padding: 5px;
+            }
+            h2{
+                font-size: 2.0rem;
+                color: #111;
+            }
+            hr{
+                border: 0;
+                height: 0;
+                border-top: 1px solid #fff;
+                border-bottom: 1px #fff;
+            }
+            p
+            {
+                color: #111;
+                font-weight: 600;
+            }
+
+            a{
+                text-decoration: none;
+                color: blue;
+                cursor: pointer;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            @media(max-width:1250px)
+            {
+                .scheme{
+                    width:98%;
+                    padding:0 5px;
+                }
+                   body
+                {
+                    width: 80%;
+                }
+            }
+            @media(max-width:1100px)
+            {
+                .scheme{
+                    width: 98%;
+                }
+                  body
+                {
+                    width: 80%;
+                }
+            }
+            @media(max-width:550px){
+                .scheme{
+                    margin: 20px 5px;
+                    width: 95%;
+                }
+                body
+                {
+                    width: 80%;
+                }
+
+            }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Agro-Help</title>
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="stylesheet" href="{% static 'admin/edit-order-style.css' %}">
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">EDIT ORDER</div>
+            <form class="form" action="{% url 'editOrderDetails' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="orderID" value="{{order.orderID}}">
+
+                 <div class="input_field">
+                    <label>Order ID</label>
+                    <input type="text" class="input" name="orderID" value="{{order.orderID}}" readonly>
+                </div>
+
+                <div class="input_field">
+                    <label>Status</label>
+                    <select name="status" id="" class="input">
+                        <option value="Ordered">Ordered</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div class="input_field">
+                    <input type="submit" value="Save" class="btn">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

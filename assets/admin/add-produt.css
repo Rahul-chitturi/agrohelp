@@ -1,0 +1,88 @@
+
+            @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Montserrat',sans-serif;
+            }
+            body{
+                background: #45e67a;
+                padding: 0 10px;
+            }
+            .wrapper{
+                max-width: 900px;
+                height: 680px;
+                width: 100%;
+                background: #fff;
+                margin: 20px auto;
+                padding: 30px;
+                box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+            }
+            .wrapper .title{
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 25px;
+                color: #45e67a;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            .wrapper .form{
+                width: 100%;
+            }
+            .wrapper .form .input_field{
+                margin-bottom: 28px;
+                display: flex;
+                align-items: center;
+            }
+            .wrapper .form .input_field label{
+                width: 200px;
+                color: #757575;
+                margin-right: 10px;
+                font-size: 14px;
+            }
+            .wrapper .form .input_field .input,
+            .wrapper .form .input_field .textarea{
+                width: 100%;
+                outline: none;
+                border: 1px solid #d5dbd9;
+                font-size: 15px;
+                padding: 8px 10px;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+            .wrapper .form .input_field .textarea{
+                resize: none;
+                height: 250px;
+            }
+            .wrapper .form .input_field .input:focus,
+            .wrapper .form .input_field .textarea:focus{
+                border: 1px solid #45e67a;
+            }
+            .wrapper .form .input_field .btn{
+                width: 100%;
+                padding: 8px 10px;
+                font-size: 15px;
+                border: 0;
+                background: #27AE60;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 3px;
+                outline: none;
+                font-weight: bold;
+            }
+            .wrapper .form .input_field:last-child{
+                margin-bottom: 0;
+            }
+            .wrapper .form .input_field .btn:hover{
+                background: #28B463;
+            }
+            @media(max-width: 420px){
+                .wrapper .form .input_field{
+                   flex-direction: column;
+                   align-items: flex-start;
+                }
+                .wrapper .form .input_field label{
+                    margin-bottom: 5px;
+                }
+            }

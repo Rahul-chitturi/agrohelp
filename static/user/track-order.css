@@ -1,0 +1,43 @@
+
+
+        body
+        {
+            background: #F4F6F7;
+        }
+        h1
+        {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .list
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+
+        }
+        ul
+        {
+            width: 55%;
+            margin: 20px;
+
+        }
+        ul li
+        {
+
+             background: #FBFCFC;
+        }
+        span
+        {
+            color: #1D8348;
+            font-weight: bold;
+        }
+        button
+        {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0 , user-scalable=no">
+        <title>Agro-Help</title>
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="stylesheet" href="{% static 'services.css' %}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+    </head>
+    <body>
+        <section id="service">
+            <div class="service-heading">
+                <h3>SERVICES AVAILABLE</h3>
+                <span>We provide all services related to Agriculture</span>
+            </div>
+
+            <div class="service-container">
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://www.bentoli.com/wp-content/uploads/2017/07/CommercialFarming-1.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'agroBasics' %}" class="service-title">BASICS OF AGRICULTURE</a>
+                        <span>
+                            All basic to advance information and guidance related to agriculture is provided under this field.
+                        </span>
+                        <p>In this field you find the basic description of different crop,and the soil type it prefer,about suitable weather condition for a particular crop, how to grow that particular crop...</p>
+                        <a href="{% url 'agroBasics' %}">Explore</a>
+                    </div>
+                </div>
+                <!--
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://ginsep.co/wp-content/uploads/2021/02/Plantix-2-1080x675.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="#" class="service-title">CROP DISEASE DETECTION</a>
+                        <span>
+                           Agriculture sector is lagging behind because of various crop disease that farmers are facing.
+                        </span>
+
+                        <p> At present,farmers are facing various crop disease.They lack in finding proper solution.We assist them to overcome such kind of problems.</p>
+                        <a href="#">Explore</a>
+                    </div>
+                </div>
+                -->
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://i.ytimg.com/vi/d5PTKHRw2FQ/maxresdefault.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'equipments' %}" class="service-title">MODERN AGRICULTURE MACHINERIES</a>
+                        <span>
+                            Modern machinery reduce the work and increase the efficiency.
+                        </span>
+
+                        <p>Combination of modern technology with agriculture reduce work load on Farmer.Use of modern machines is effective and time saving.</p>
+                        <a href="{% url 'equipments' %}">Explore</a>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://img.krishijagran.com/media/66656/ministry-of-agriculture-farmer-welfare.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'schemes' %}" class="service-title">GOVERNMENT SCHEMES</a>
+                        <span>
+                            Government schemes and rewards always boost farmers to put more efforts towards agriculture.
+                        </span>
+
+                        <p>Farmers are unaware of most of the agricultural schemes and subsidy provided by government.Our website help our users to know about such funds and schemes</p>
+                        <a href="{% url 'schemes' %}">Explore</a>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://c.ndtvimg.com/2021-06/qk4fks1g_price-tags-on-pulses-reuters_625x300_10_June_21.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'selectCrop' %}" class="service-title">CROP PRICE</a>
+                        <span>
+                            Updated crop price of each crop on daily basis.
+                        </span>
+
+                        <p>This will provided updated price of crop .</p>
+                        <a href="{% url 'selectCrop' %}">Explore</a>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://www.thenation.com/wp-content/uploads/2019/03/pesticide-spraying-california-otu-img.jpg" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'fertilizers' %}" class="service-title">FERTILIZERS</a>
+                        <span>
+                            Pesticides protect plant from various crop disease.
+                        </span>
+
+                        <p>Farmers are unaware of most of the agricultural schemes and subsidy provided by government.Our website help our users to know about such funds and schemes.</p>
+                        <a href="{% url 'fertilizers' %}">Explore</a>
+                    </div>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-img">
+                        <img src="https://us.123rf.com/450wm/luboskova/luboskova1711/luboskova171100047/90148370-man-in-overall-and-safety-helmet-trims-overgrown-grass-by-grass-cutter.jpg?ver=6" alt="service">
+                    </div>
+                    <div class="service-text">
+                        <a href="{% url 'grassCuttersList' %}" class="service-title">LABOUR DETAILS</a>
+                        <span>
+                            Users can get the nearby grass cutters.
+                        </span>
+                        <a href="{% url 'grassCuttersList'%}">Explore</a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+    </body>
+</html>

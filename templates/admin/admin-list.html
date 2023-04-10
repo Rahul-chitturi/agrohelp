@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="//cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+        {% load static %}
+         <title>Agro-Help</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link type="text/css" rel="stylesheet" href="{% static 'admin/responsive.dataTables.min.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'admin/product-list.css' %}">
+        <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="//cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+        <script src="//cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+        <script src="https://kit.fontawesome.com/1c0fada2a2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+     {% for i in messages %}
+    <p style="font-size:25px;font-weight:bold;background:#28B463;width:100%;padding:5px 0;border-radius:5px;text-align:center;">{{i}}</p>
+    {% endfor %}
+        <h2 style="text-align: center; font-size: xx-large; color: #4CAF50;">Admin Table</h2>
+        <a href="{% url 'adminRegister' %}" class="btn btn-info"
+           style="font-size:20px;color:#111;padding:3px 2px;background-color:#52BE80;font-weight:bold;" role="button" ><i class="fa-solid fa-circle-plus"></i></a>
+        <br><br>
+        <table id="example" class="display responsive nowrap" style="width:100%">
+            <thead style="font-size: large; color: #111;">
+                <tr>
+                    <th>SI NO.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center; font-style: italic; font-weight: 400;">
+
+                {% for j in admins %}
+              <tr>
+                <td data-label="Id">{{forloop.counter}}</td>
+                <td data-label="Name">{{j.first_name}}</td>
+                <td data-label="Phone">{{j.email}}</td>
+                <td data-label="Email Id">{{j.username}}</td>
+
+                <td data-label="Option">
+                    <form action="{% url 'deleteAdmin' %}" method="POST">
+                        {% csrf_token %}
+                            <input type="hidden" name="username" value="{{j.username}}">
+                            <button type="submit" style="background-color:#52BE80;
+                            border:none;outline:none;font-size:18px;padding:4px 23px;border-radius:25px;color:#fff;"><i class="fa-solid fa-trash-can" style="color:#111;"></i></button>
+                    </form>
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <script>
+            $(document).ready(function(){
+                $('table#example').DataTable({
+                    dom: 'Bfrtip',
+                    "searching":true,
+                    "paging": true,
+                    "order": [[0,"asc"]],
+                    "ordering": true,
+                    "columnDefs": [{
+                        "targets": [3],
+                        "ordertable": false,
+                        "data" :"Block"
+                    }],
+                    buttons:[
+                        'copy','csv','pdf','print'
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>

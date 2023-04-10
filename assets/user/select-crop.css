@@ -1,0 +1,42 @@
+
+        body
+        {
+            background: #58D68D;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .box
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ECF0F1;
+            box-shadow: 10px 8px 8px #D7DBDD;
+            margin: 25px;
+            padding: 40px 20px;
+        }
+        h1
+        {
+            color: #27AE60;
+        }
+        form
+        {
+            flex: 90%;
+        }
+        label
+        {
+            font-weight: bold;
+            margin: 1px;
+        }
+         button
+        {
+            background:#58D68D;
+            font-weight: bold;
+            font-size: 17px;
+            margin-top: 8px;
+            outline: none;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 15px;
+        }

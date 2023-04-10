@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+  <title>Agro-Help</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'admin/admin-register.css'%}">
+</head>
+<body>
+  <h2 class="title">Admin Registration</h2>
+  <img class="wave" src="{% static 'images/wave.png' %}">
+  <div class="container">
+    <div class="img">
+      <img src="{% static 'images/bg.svg' %}">
+    </div>
+    <div class="login-content">
+      <form action="{% url 'adminRegister' %}" method="POST">
+          {% csrf_token %}
+        <img src="{% static 'images/avatar.svg' %}">
+              <div class="input-div one">
+                 <div class="i">
+                    <i class="fas fa-user"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Name</h5>
+                    <input type="text" name="name" class="input" required>
+                 </div>
+              </div>
+               <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="div">
+                    <h5>Contact</h5>
+                    <input type="text" name="username" class="input" required>
+                </div>
+             </div>
+             <div class="input-div one">
+              <div class="i">
+                  <i class="fas fa-envelope"></i>
+              </div>
+              <div class="div">
+                  <h5>Email</h5>
+                  <input type="text" name="email" class="input" required>
+              </div>
+           </div>
+
+              <div class="input-div pass">
+                 <div class="i">
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" class="input" id="myInput" name="password" required>
+                     <span class="eye" onclick="myFunc()">
+                      <i id="hide1" class="fa fa-eye"></i>
+                      <i id="hide2" class="fa fa-eye-slash"></i>
+                  </span>
+                 </div>
+              </div>
+              <br>
+              <input type="submit" class="btn" value="Register">
+
+          {% for i in messages %}
+				<p style="color:red;">{{i}}</p>
+				{% endfor %}
+            </form>
+        </div>
+    </div>
+    <script>
+      const inputs = document.querySelectorAll(".input");
+
+
+function addcl(){
+  let parent = this.parentNode.parentNode;
+  parent.classList.add("focus");
+}
+
+function remcl(){
+  let parent = this.parentNode.parentNode;
+  if(this.value == ""){
+    parent.classList.remove("focus");
+  }
+}
+
+
+inputs.forEach(input => {
+  input.addEventListener("focus", addcl);
+  input.addEventListener("blur", remcl);
+});
+    </script>
+    <script>
+      function myFunc(){
+                var x = document.getElementById("myInput")
+                var y = document.getElementById("hide1")
+                var z = document.getElementById("hide2")
+
+                if(x.type == 'password'){
+                    x.type="text"
+                    y.style.display="block"
+                    z.style.display="none"
+                }
+                else{
+                    x.type="password"
+                    y.style.display="none"
+                    z.style.display="block"
+
+                }
+
+            }
+    </script>
+</body>
+</html>

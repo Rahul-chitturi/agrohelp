@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Agro-Help</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap" rel="stylesheet">
+
+        <style type="text/css">
+            
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+      
+    } 
+
+  .form-wrapper {
+    position: relative; }
+
+    .form-wrapper i {
+      position: absolute;
+      bottom: 9px;
+      right: 0; 
+
+ }
+   
+  .form-control {
+    border: 1px solid rgb(237, 165, 167);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 0;
+    margin-bottom: 25px; 
+}
+    .form-control::-webkit-input-placeholder {
+      font-size: 17px;
+      color: rgb(13, 33, 12);
+       }
+     
+body {
+    background:url("https://images.unsplash.com/photo-1498354178607-a79df2916198?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fG1hcHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60") no-repeat 0% 87% fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+
+}
+ 
+.wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 32%;
+    padding: 0 20px;
+
+}
+.head {
+    font-size: 38px;
+    padding: 20px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.sub-main{
+    position:relative;
+}
+ 
+.sub-main input[type="password"]  {
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px 0px 18px 1px;
+    color: black;
+    padding: 10px 38px;
+    border: none;
+    border-radius: 2px;
+    width: 68%;
+        font-family: 'Poppins', sans-serif;
+}
+.sub-main input[type="submit"] {
+    color: rgb(21, 21, 21);
+    background: #80f1f9;
+    border: none;
+    padding: 5px 50px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 2px;
+    margin: 17px;
+    font-family: 'Poppins', sans-serif;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:0.5s all;
+     
+}
+.sub-main input[type="submit"]:hover {
+    background: #aef3f3;
+    color: black;
+    transition:0.5s all;
+     
+}
+select
+{
+    font-size: 17px;
+}
+input[type=text] {
+  width: 100%;
+  padding: 5px 12px;
+  font-size: 17px;
+  /*margin: 8px 0;*/
+  box-sizing: border-box;
+
+
+}
+
+@media (max-width: 767px) {
+    .head {
+      display: block; }
+    .sub-main{
+        display:block;
+        width: 100%;
+
+    }
+    .submit {
+      margin-top: 60px; } }
+   
+ @media (max-width: 800px) {
+    .inner {
+      display: block; }
+      .inner .image-holder {
+        width: 100%; }
+      .inner form {
+        width: 100%;
+        padding: 40px 0 30px; }
+
+
+@media (max-width: 770px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 75%;
+     font-family: 'Poppins', sans-serif;
+    padding: 0 20px;
+}
+}
+
+@media (max-width: 320px) {
+        .wrap {
+    margin: 2% auto;
+    background: rgba(3, 28, 1, 0.52);
+    width: 100%;
+       font-family: 'Poppins', sans-serif;
+    padding: 0 20px;
+}
+}
+
+
+   
+    button {
+      margin-top: 60px; } }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+        </style>
+    </head>
+    <body>
+      
+<div class="wrap">
+    <h2 class="head">Select your City</h2>
+        <div class="sub-main">    
+            <form action="{% url 'grassCuttersList' %}" method="POST">
+                {% csrf_token %}
+               
+                    <div class="form-wrapper">
+                        <select id="" class="form-control" name="district">
+                        <option value="" disabled selected>&nbsp;&nbsp;Select District</option>
+                        <option value="Bagalkot">Bagalkot</option>
+                        <option value="Ballari">Ballari (Bellary)</option>
+                        <option value="Belagavi">Belagavi (Belgaum)</option>
+                        <option value="Bengaluru Rural">Bengaluru Rural</option>
+                        <option value="Bengaluru Urban">Bengaluru Urban</option>
+                        <option value="Bidar">Bidar</option>
+                        <option value="Chamarajanagar">Chamarajanagar</option>
+                        <option value="Chikballapur">Chikballapur</option>
+                        <option value="Chikkamagaluru">Chikkamagaluru</option>
+                        <option value="Chitradurga">Chitradurga</option>
+                        <option value="Dakshina Kannada">Dakshina Kannada</option>
+                        <option value="Davangere">Davangere</option>
+                        <option value="Dharwad">Dharwad</option>
+                        <option value="Gadag">Gadag</option>
+                        <option value="Hassan">Hassan</option>
+                        <option value="Haveri">Haveri</option>
+                        <option value="Kalaburagi">Kalaburagi</option>
+                        <option value="Kodagu">Kodagu</option>
+                        <option value="Kolar">Kolar</option>
+                        <option value="Koppal">Koppal</option>
+                        <option value="Mandya">Mandya</option>
+                        <option value="Mysuru">Mysuru</option>
+                        <option value="Raichur">Raichur</option>
+                        <option value="Ramanagara">Ramanagara</option>
+                        <option value="Shivamogga">Shivamogga </option>
+                        <option value="Tumakuru">Tumakuru</option>
+                        <option value="Udupi">Udupi</option>
+                        <option value="Uttara Kannada">Uttara Kannada (Karwar)</option>
+                        <option value="Vijayapura">Vijayapura (Bijapur)</option>
+                        <option value="Yadgir">Yadgir</option>
+                        <option value="femal">Not Available</option>
+                        </select>
+                    </div>
+                <div class="form-wrapper">
+                <input type="text" id="city" name="city" maxlength="20" size="8" placeholder="Enter Your City">
+            </div>
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="clear"></div>
+</div>
+    </body>
+</html>

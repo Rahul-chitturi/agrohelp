@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--divinectorweb.com-->
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Agro-Help</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'user/my-orders.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>My Orders</h1>
+        {% if orders %}
+        <div class="project">
+            <div class="shop">
+                {% for i in orders %}
+                <div class="box">
+                    <img src="{{i.product.productImg.url}}">
+                    <div class="content">
+                        <h3>{{i.product.name}}</h3>
+                        <h4>Price: <span>&#8377 {{i.product.price}}</span></h4>
+                        <p class="unit"  style="font-weight: bold;padding: 0;margin: 0;font-size: 15px;">Quantity: {{i.quantity}}</p>
+                        {% if i.status == "Cancelled" %}
+                        <p style="color: red;font-weight: bold;font-size: 17px;">Cancelled</p>
+                        {% else %}
+                        <p style="color: #419155;font-weight: bold;font-size: 17px;">Delivered on {{i.expectedDeliveryDate}}</p>
+                        <form action="{% url 'trackOrder' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="orderID" value="{{i.orderID}}">
+                        <button  type="submit" class="btn-area1"><i aria-hidden="true" class="fa fa-shopping-cart"></i> <span class="btn2">Track</span></button>
+                        </form>
+                        <form action="{% url 'cancelOrder' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="orderID" value="{{i.orderID}}">
+                        <button type="submit" class="btn-area"><i aria-hidden="true" class="fa fa-trash"></i> <span class="btn2">Cancel</span></button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <nav>
+
+            <ul class="pagination justify-content-center mb-5">
+                {% if orders.has_previous %}
+                <li class="page-item" title="Previous">
+                    <a href="?page={{orders.previous_page_number}}" class="page-link rounded-circle m-1"><i class="fas fa-chevron-left text-primary"></i>
+                    </a>
+                </li>
+                {% endif %}
+                <li class="page-item active"><a href="" class="page-link rounded-circle m-1">{{orders.number}}</a></li>
+                {% if orders.has_next %}
+                <li class="page-item" title="Next">
+                    <a href="?page={{orders.next_page_number}}" class="page-link rounded-circle m-1"><i class="fas fa-chevron-right text-primary"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% else %}
+          <p style="text-align:center;font-size:25px;font-weight:bolder;color:#fff;">No Items.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

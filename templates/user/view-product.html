@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agro-Help</title>
+   {% load static %}
+         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'user/view-product.css' %}">
+    <style>
+    a:hover
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+</style>
+<body>
+<section class="features">
+        <h1>Agricultural Products</h1>
+    {% if products %}
+        <div class="container">
+            <div class="row justify-content-center">
+
+                {% for i in products %}
+            <div class="col-md-4">
+            <div class="feature-box">
+            <div class="feature-img">
+            <img src="{{i.productImg.url}}" width="250px" height="250px">
+            <div class="price text-center">
+                <span style="font-size:20px;">Rs.{{i.price}}</span>
+            </div>
+
+            </div>
+            <div class="feature-details">
+                <h4 style="color:#DC7633;">{{i.name}}</h4>
+                <p>{{i.description}}</p>
+                <form method="post" action="{% url 'viewDetails' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{i.productID}}" name="productID">
+                    <br>
+                    <div class="text-center">;
+                        <button type="submit" class="feature-details-hidden btn" style="background-color:#EB984E;">View Details</button>
+                    </div>
+                </form>
+                  <form method="post" action="{% url 'addToCart' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{i.productID}}" name="productID">
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="feature-details-hidden btn" style="background-color:#EB984E;">Add to Cart</button>
+                    </div>
+                </form>
+                <form method="post" action="{% url 'checkout' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{i.productID}}" name="productID">
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="feature-details-hidden btn" style="background-color:#EB984E;">Buy Now</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+{% endfor %}
+
+
+            </div>
+        </div>
+        </div>
+        <div class="pagination">
+           <ul>
+               {% if products.has_previous %}
+                <li class="btn prev"><a href="?page={{products.previous_page_number}}"><span><i class="fa fa-angel-left"></i>Prev</span></a></li>
+               {% endif %}
+                <li class="numb active"><span>{{products.number}}</span></li>
+               {% if products.has_next %}
+                <li class="btn next"><a href="?page={{products.next_page_number}}"><span>Next<i class="fa fa-angel-right"></i></span></a></li>
+               {% endif %}
+            </ul>
+          </div>
+        </div>
+    {% else %}
+    <p style="font-size:25px;color:red;text-align:center;font-weight:bold;">No products.</p>
+    {% endif %}
+        </section>
+</body>
+</html>
