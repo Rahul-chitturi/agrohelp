@@ -1,7 +1,7 @@
 from django.db import models as mo
 from django.contrib.auth.models import auth, User
 import datetime
-
+from django.utils import timezone
 Product_Category = (
     ("Equipments", "Equipments"),
     ("Fertilizers", "Fertilizers")
@@ -23,7 +23,7 @@ class agricultureBasics(mo.Model):
     agriID = mo.BigAutoField(primary_key=True)
     title = mo.TextField(max_length=20, default='')
     description = mo.TextField(max_length=1000, default='')
-    publishedDateTime = mo.DateTimeField(default=datetime.datetime.now())
+    publishedDateTime = mo.DateTimeField(default=timezone.now)
     documents = mo.FileField(upload_to="AgroBasics")
 
     def __str__(self):
@@ -34,8 +34,8 @@ class agricultureSchemes(mo.Model):
     schemeID = mo.BigAutoField(primary_key=True)
     title = mo.TextField(max_length=20, default='')
     description = mo.TextField(max_length=250, default='')
-    startDate = mo.DateTimeField(default=datetime.datetime.now())
-    lastDate = mo.DateTimeField(default=datetime.datetime.now())
+    startDate = mo.DateTimeField(default=timezone.now)
+    lastDate = mo.DateTimeField(default=timezone.now)
     applyLink = mo.URLField(default='')
 
     def __str__(self):
@@ -46,7 +46,7 @@ class applications(mo.Model):
     applicationID = mo.BigAutoField(primary_key=True)
     appliedTo = mo.ForeignKey(to=agricultureSchemes, on_delete=mo.CASCADE)
     appliedBy = mo.ForeignKey(to=customer, on_delete=mo.CASCADE)
-    appliedDate = mo.DateTimeField(default=datetime.datetime.now())
+    appliedDate = mo.DateTimeField(default=timezone.now)
     applicationStatus = mo.CharField(max_length=20, default='')
 
     def __str__(self):
@@ -92,8 +92,8 @@ class orders(mo.Model):
     quantity = mo.IntegerField(default=0)
     totalPrice = mo.IntegerField(default=0)
     address = mo.TextField(max_length=250, default='')
-    orderDate = mo.DateField(default=datetime.date.today())
-    expectedDeliveryDate = mo.DateField(default=datetime.date.today())
+    orderDate = mo.DateField(default=timezone.now)
+    expectedDeliveryDate = mo.DateField(default=timezone.now)
     status = mo.CharField(max_length=10, default='')
 
     def __str__(self):
