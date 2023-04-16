@@ -13,6 +13,7 @@ class customer(mo.Model):
     user = mo.ForeignKey(to=User, on_delete=mo.CASCADE)
     address = mo.TextField(max_length=100, default='')
     pincode = mo.CharField(max_length=6, default='')
+    role = mo.TextField(max_length=100, default='')
     profileImage = mo.ImageField(upload_to="Profiles")
 
     def __str__(self):
@@ -116,6 +117,18 @@ class grassCutters(mo.Model):
     city = mo.TextField(max_length=20, default='')
     district = mo.TextField(max_length=20, default='')
     price = mo.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.grassCutterID)
+
+
+class Job(mo.Model):
+    jobID = mo.BigAutoField(primary_key=True)
+    userObj = mo.ForeignKey(to=User, on_delete=mo.CASCADE)
+    pincode = mo.CharField(max_length=6, default='')
+    salary = mo.IntegerField(default=350)
+    workforce = mo.IntegerField(default=10)
+    jobType = mo.TextField(max_length=200, default='')
 
     def __str__(self):
         return str(self.grassCutterID)

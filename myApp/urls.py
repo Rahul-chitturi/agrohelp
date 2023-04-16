@@ -68,6 +68,8 @@ urlpatterns=[
     path('user/confirmUpdateEmail',views.confirmUpdateEmail,name="confirmUpdateEmail"),
     path('user/changeNumber',views.changeNumber,name="changeNumber"),
     path('user/grassCutterRegistration',views.grassCutterRegistration,name="grassCutterRegistration"),
+    path('user/postJob',views.postJob,name="postJob"),
+    path('user/ListJobs',views.listJobs,name="ListJobs"),
     path('user/grassCuttersList',views.grassCuttersList,name="grassCuttersList"),
 
     path('user/cancelOrder',views.cancelOrder,name="cancelOrder"),

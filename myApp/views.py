@@ -9,7 +9,7 @@ from django.contrib import messages
 import smtplib
 import random
 from .models import products, orders, customer, applications, agricultureSchemes, agricultureBasics, feedback, cart, \
-    subscribers, grassCutters
+    subscribers, grassCutters, Job
 from .forms import ProductForm, AgroBasicForm
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseNotFound
@@ -22,6 +22,9 @@ import re
 
 
 def home(request):
+    if request.user.is_authenticated:
+        obj = customer.objects.get(user=request.user)
+        return render(request, 'home.html', {'customer': obj})
     return render(request, 'home.html')
 
 
@@ -526,10 +529,12 @@ def completeSetup(request):
     if request.method == "POST":
         address = request.POST['address']
         pincode = request.POST['pincode']
+        role = request.POST['roles']
+        print(type)
         if len(pincode) == 6:
             obj = User.objects.create_user(first_name=name, email=email, username=username, password=password)
             obj.save()
-            customerObj = customer(user=obj, address=address, pincode=pincode)
+            customerObj = customer(user=obj, address=address, pincode=pincode, role=role)
             customerObj.save()
             auth.login(request, obj)
             messages.success(request, 'User is created successfully.')
@@ -1057,6 +1062,36 @@ def grassCutterRegistration(request):
                 return redirect('home')
         else:
             return render(request, 'user/Cutter-Registration.html')
+
+
+@login_required(login_url='user/login')
+def postJob(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            pincode = request.POST['pincode']
+            salary = request.POST['salary']
+            workforce = request.POST['workforce']
+            jobType = request.POST['type']
+
+            userObj = User.objects.get(username=request.user.username)
+
+            obj = Job(userObj=userObj, pincode=pincode,
+                      salary=salary, workforce=workforce, jobType=jobType)
+            obj.save()
+            return redirect('home')
+        else:
+            return render(request, 'user/PostJob.html')
+
+@login_required(login_url='user/login')
+def listJobs(request):
+    if request.user.is_authenticated:
+        userObj = User.objects.get(username=request.user.username)
+        address = customer.objects.filter(user=userObj)
+        pincode = 584123
+        for i in list(address):
+            pincode = i.pincode
+        related_jobs = Job.objects.filter(pincode=pincode)
+        return render(request, 'user/ListJobs.html',{'jobs': related_jobs})
 
 
 def grassCuttersList(request):

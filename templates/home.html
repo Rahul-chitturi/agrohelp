@@ -3,13 +3,17 @@
     <title>AgroHelp-Dynamic website for farmers</title>
 
     {% load static %}
-         <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7b5528ef15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'home.css'%}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     <script src="https://kit.fontawesome.com/1c0fada2a2.js" crossorigin="anonymous"></script>
     <style>
         .dropdown-menu
@@ -23,162 +27,194 @@ background-image: linear-gradient(to right,#1d6e31,#169135);
 border-bottom: 3px dashed #111;
 }
 
+
     </style>
 </head>
 <body>
 {% for i in messages %}
 <div class="me">
-<div class="alert alert-danger" role="alert">
-{{i}}
-</div>
+    <div class="alert alert-danger" role="alert">
+        {{i}}
     </div>
+</div>
 {% endfor %}
-    <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="{% static 'Images/logo.png'%}"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="{% static 'Images/logo.png'%}"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars" aria-hidden="true"></i>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <a class="nav-link"  href="{% url 'home' %}">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#services">SERVICES</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#about-us">ABOUT AGROHELP</a>
-                  </li>
-                             <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            AGRO-PRODUCTS
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{% url 'equipments' %}">Modern Equipments</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% url 'fertilizers' %}">Fertilizers</a></li>
-          </ul>
-        </li>
-                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'schemes' %}">AGRO-SCHEMES</a>
-                  </li>
+                        <a class="nav-link" href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">ABOUT AGROHELP</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            AGRO-PRODUCTS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'equipments' %}">Modern Equipments</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'fertilizers' %}">Fertilizers</a></li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'schemes' %}">AGRO-SCHEMES</a>
+                    </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
-                  </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'team' %}">TEAM</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contactUs' %}">CONTACT US</a>
-                  </li>
-{% if request.user.is_active %}
-                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'userProfile' %}">PROFILE</a>
-                  </li>
+                        <a class="nav-link" href="#testimonials">TESTIMONIALS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'team' %}">TEAM</a>
+                    </li>
+                    {% if customer == none %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contactUs' %}">CONTACT US</a>
+                    </li>
+                      {% endif %}
+                    {% if request.user.is_active %}
+                    {% if customer.role == 'farmer' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'postJob' %}">POST JOBS</a>
+                    </li>
+
+                    {% elif customer.role == 'worker'%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ListJobs' %}">JOBS</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'userProfile' %}">PROFILE</a>
+                    </li>
+
                     {% else %}
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'userLogin' %}">LOGIN / REGISTER</a>
-                  </li>
+                        <a class="nav-link" href="{% url 'userLogin' %}">LOGIN / REGISTER</a>
+                    </li>
                     {% endif %}
                 </ul>
-              </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
-    </section>
+</section>
 
-    <!--- banner section-->
+<!--- banner section-->
 
-    <section id="banner">
-        <div class="container">
+<section id="banner">
+    <div class="container">
         <div class="row">
-        <div class="col-mad-6">
-            <p class="promo-title">Agro-Help</p>
-            <p>VISION IS TO GROW TOGETHER</p>
-        </div>
-
-        </div>
-        </div>
-            <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YWdyaWN1bHR1cmV8ZW58MHx8MHx8&w=1000&q=80"
-            class="bottom-img" >
-
-    </section>
-
-    <!---service-->
-    <section id="services">
-        <div class="container text-center">
-            <h1 class="title">WHAT WE DO ?</h1>
-            <div class="row text-center">
-                <div class="col-md-6 services">
-                    <a href="{% url 'agroBasics'  %}"><img src="https://images.unsplash.com/photo-1557234195-bd9f290f0e4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c29pbHxlbnwwfHwwfHw%3D&w=1000&q=80" class="service-img" >
-                    </a>
-                    <h4>Basics of Agriculture</h4>
-                    <h6>This field guide our user who are new to agriculture.All basics details  </h6>
-                </div>
-                <!--
-                <div class="col-md-6 services ">
-                    <a href="{% url 'services' %}">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6I7W6iS6RtNI28p27QsLNHm5lFVxBxtdSiDvhizsjKp7NXilkIun9Ph6sQQrOaRV1UA0&usqp=CAU" class="service-img" >
-                    </a>
-                    <h4>Crop Disease Detection</h4>
-                    <h6>At present,farmers are facing various crop disease.They lack in finding proper solution.We assist them to overcome such kind of problems.</h6>
-                </div>-->
-                <div class="col-md-6 services">
-                    <a href="{% url 'equipments' %}">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2DaGk2FgpNW9FfapygHM-iU7Rs_QkRVDtug&usqp=CAU" class="service-img" >
-                    </a>
-                        <h4>Modern Agriculture Machines</h4>
-                    <h6>Combination of modern technlogy with agriculture reduce work load on Farmer.Use of modern machineries is effective and time saving </h6>
-                </div>
-                <div class="col-md-6 services">
-                    <a href="{% url 'schemes' %}">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCD0YydUJNkrCo3XYmcZBm4yfvC3oLcI1hDw&usqp=CAU" class="service-img" >
-                    </a>
-                    <h4>Government Schemes</h4>
-                    <h6>Farmers are unware of most of the agricultural schemes and  subsidy provided by government.Our website help our users to know about such funds and schemes.</h6>
-                </div>
-                <div class="col-md-6 services">
-                    <a href="{% url 'selectCrop' %}">
-                    <img src="https://pibindia.files.wordpress.com/2017/02/different-types-grains_4fdc5c692f79d253.jpg?w=1400" class="service-img" >
-                    </a>
-                    <h4>Crop Price</h4>
-                    <h6>Crop price service helps the farmers to know about the daily price of agricultural products based on their region.The price is updated based on Krishivaani Government website.</h6>
-
-                </div>
-                <div class="col-md-6 services">
-                    <a href="{% url 'fertilizers' %}">
-                    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201303/pesticide-muddle-1_660_032813015033.jpg" class="service-img" >
-                    </a>
-                    <h4>Fertilizers</h4>
-                    <h6>Fertilizers are food for plants.Fertilizers replace the nutrients that crops remove from the soil.This service provide brief description about the various fertilizers and also allow the users to buy .   </h6>
-
-                </div>
-                <div class="col-md-6 services">
-                    <a href="{% url 'grassCuttersList'  %}"><img src="https://us.123rf.com/450wm/luboskova/luboskova1711/luboskova171100047/90148370-man-in-overall-and-safety-helmet-trims-overgrown-grass-by-grass-cutter.jpg?ver=6" class="service-img" >
-                    </a>
-                    <h4>Labours Details</h4>
-                    <h6>In this,Users can get nearby grass cutters.</h6>
-                </div>
+            <div class="col-mad-6">
+                <p class="promo-title">Agro-Help</p>
+                <p>VISION IS TO GROW TOGETHER</p>
             </div>
-            <a href="{% url 'services' %}" class="btn btn-primary">All services</a>
-
 
         </div>
-    </section>
+    </div>
+    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YWdyaWN1bHR1cmV8ZW58MHx8MHx8&w=1000&q=80"
+         class="bottom-img">
 
-    <!-- about us-->
-    <section id="about-us">
+</section>
 
-        <div class="container">
-            <h1 class="title text-center">WHY CHOOSE US</h1>
-            <div class="row">
+<!---service-->
+<section id="services">
+    <div class="container text-center">
+        <h1 class="title">WHAT WE DO ?</h1>
+        <div class="row text-center">
+            <div class="col-md-6 services">
+                <a href="{% url 'agroBasics'  %}"><img
+                        src="https://images.unsplash.com/photo-1557234195-bd9f290f0e4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c29pbHxlbnwwfHwwfHw%3D&w=1000&q=80"
+                        class="service-img">
+                </a>
+                <h4>Basics of Agriculture</h4>
+                <h6>This field guide our user who are new to agriculture.All basics details </h6>
+            </div>
+            <!--
+            <div class="col-md-6 services ">
+                <a href="{% url 'services' %}">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6I7W6iS6RtNI28p27QsLNHm5lFVxBxtdSiDvhizsjKp7NXilkIun9Ph6sQQrOaRV1UA0&usqp=CAU" class="service-img" >
+                </a>
+                <h4>Crop Disease Detection</h4>
+                <h6>At present,farmers are facing various crop disease.They lack in finding proper solution.We assist them to overcome such kind of problems.</h6>
+            </div>-->
+            <div class="col-md-6 services">
+                <a href="{% url 'equipments' %}">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2DaGk2FgpNW9FfapygHM-iU7Rs_QkRVDtug&usqp=CAU"
+                         class="service-img">
+                </a>
+                <h4>Modern Agriculture Machines</h4>
+                <h6>Combination of modern technlogy with agriculture reduce work load on Farmer.Use of modern
+                    machineries is effective and time saving </h6>
+            </div>
+            <div class="col-md-6 services">
+                <a href="{% url 'schemes' %}">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCD0YydUJNkrCo3XYmcZBm4yfvC3oLcI1hDw&usqp=CAU"
+                         class="service-img">
+                </a>
+                <h4>Government Schemes</h4>
+                <h6>Farmers are unware of most of the agricultural schemes and subsidy provided by government.Our
+                    website help our users to know about such funds and schemes.</h6>
+            </div>
+            <div class="col-md-6 services">
+                <a href="{% url 'selectCrop' %}">
+                    <img src="https://pibindia.files.wordpress.com/2017/02/different-types-grains_4fdc5c692f79d253.jpg?w=1400"
+                         class="service-img">
+                </a>
+                <h4>Crop Price</h4>
+                <h6>Crop price service helps the farmers to know about the daily price of agricultural products based on
+                    their region.The price is updated based on Krishivaani Government website.</h6>
+
+            </div>
+            <div class="col-md-6 services">
+                <a href="{% url 'fertilizers' %}">
+                    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201303/pesticide-muddle-1_660_032813015033.jpg"
+                         class="service-img">
+                </a>
+                <h4>Fertilizers</h4>
+                <h6>Fertilizers are food for plants.Fertilizers replace the nutrients that crops remove from the
+                    soil.This service provide brief description about the various fertilizers and also allow the users
+                    to buy . </h6>
+
+            </div>
+            <div class="col-md-6 services">
+                <a href="{% url 'grassCuttersList'  %}"><img
+                        src="https://us.123rf.com/450wm/luboskova/luboskova1711/luboskova171100047/90148370-man-in-overall-and-safety-helmet-trims-overgrown-grass-by-grass-cutter.jpg?ver=6"
+                        class="service-img">
+                </a>
+                <h4>Labours Details</h4>
+                <h6>In this,Users can get nearby grass cutters.</h6>
+            </div>
+        </div>
+        <a href="{% url 'services' %}" class="btn btn-primary">All services</a>
+
+
+    </div>
+</section>
+
+<!-- about us-->
+<section id="about-us">
+
+    <div class="container">
+        <h1 class="title text-center">WHY CHOOSE US</h1>
+        <div class="row">
             <div class="col-mod-6 about-us">
-            <p class="about-title">Why we are different</p>
+                <p class="about-title">Why we are different</p>
                 <ul>
                     <li>This website is like all in one website for Farmers</li>
                     <li>Farmers get all assistant from us during there agricultural process.</li>
@@ -192,48 +228,58 @@ border-bottom: 3px dashed #111;
 
             <div class="col-mod-6 about-us">
                 <p class="about-title">TRIBUTE TO FARMERS</p>
-                <h6>Farmers are the backbone of our society. They are the ones who provide us all the food that we eat. As a result, the entire population of the country depends upon farmers.
-                    Be it the smallest or the largest country. Because of them only we are able to live on the planet. Thus Farmers are the most important people in the world.
-                    Though farmers have so much importance still they do not have proper living.There are different types of farmers. And they all have equal significance.In addition, farmers contribute almost 17% of the Indian economy. That is the maximum of all. But still, a farmer is deprived of every luxury of society.
-                    In order to save farmers, our Government is trying to provide them with various privileges. Recently the government has exempted them from all the loans. Moreover, the government pays an annual pension of Rs. 6000 to them. This helps them to at least have some earning apart from their profession.
-                    Furthermore, the government provides quotas (reservations) to their children. This ensures that their children get a proper education.
-                    At last, farming is a profession which hard labor and effort. Moreover seeing the growing population of our country we should take initiatives to help farmers of our country.
+                <h6>Farmers are the backbone of our society. They are the ones who provide us all the food that we eat.
+                    As a result, the entire population of the country depends upon farmers.
+                    Be it the smallest or the largest country. Because of them only we are able to live on the planet.
+                    Thus Farmers are the most important people in the world.
+                    Though farmers have so much importance still they do not have proper living.There are different
+                    types of farmers. And they all have equal significance.In addition, farmers contribute almost 17% of
+                    the Indian economy. That is the maximum of all. But still, a farmer is deprived of every luxury of
+                    society.
+                    In order to save farmers, our Government is trying to provide them with various privileges. Recently
+                    the government has exempted them from all the loans. Moreover, the government pays an annual pension
+                    of Rs. 6000 to them. This helps them to at least have some earning apart from their profession.
+                    Furthermore, the government provides quotas (reservations) to their children. This ensures that
+                    their children get a proper education.
+                    At last, farming is a profession which hard labor and effort. Moreover seeing the growing population
+                    of our country we should take initiatives to help farmers of our country.
                 </h6>
                 <h5></h5>
             </div>
 
-            </div>
-
         </div>
-    </section>
 
-    <!--testimonials-->
+    </div>
+</section>
 
-    <section id="testimonials">
+<!--testimonials-->
+
+<section id="testimonials">
     <div class="container">
         <h1 class="title text-center">What Our Client say?</h1>
         <div class="row offset-1">
-        <div class="col-mod-5 testimonials">
-            <p>Its a good website related to agriculture.I got answer to all my doubts in this website.</p>
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIV99IJOGUBMQBy9kccOQsAyq36yzt0BRYUw&usqp=CAU" >
-                 <p class="user-details"><b>Shivani</b><br>From:Kundapura</p>
+            <div class="col-mod-5 testimonials">
+                <p>Its a good website related to agriculture.I got answer to all my doubts in this website.</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIV99IJOGUBMQBy9kccOQsAyq36yzt0BRYUw&usqp=CAU">
+                <p class="user-details"><b>Shivani</b><br>From:Kundapura</p>
 
-        </div>
+            </div>
 
-        <div class="col-mod-5 testimonials">
-            <p> At begin , I was bit confused with its features.After regular use I feel like its the best website for farmers.</p>
-                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZG-8Pk5VYr_MOP4Ks3uEeZdArTUAizNRwg&usqp=CAU" >
-                 <p class="user-details"><b>Madhurya</b> <br>From:Mangalore</p>
+            <div class="col-mod-5 testimonials">
+                <p> At begin , I was bit confused with its features.After regular use I feel like its the best website
+                    for farmers.</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZG-8Pk5VYr_MOP4Ks3uEeZdArTUAizNRwg&usqp=CAU">
+                <p class="user-details"><b>Madhurya</b> <br>From:Mangalore</p>
 
-        </div>
+            </div>
 
         </div>
 
     </div>
 
-    </section>
+</section>
 
-    <!--------------Social media Section-->
+<!--------------Social media Section-->
 
 <!--    <section id="social-media">-->
 <!--        <div class="container text-center">-->
@@ -254,48 +300,50 @@ border-bottom: 3px dashed #111;
 
 <!--    </section>-->
 
-    <!-------footer section-------->
+<!-------footer section-------->
 
-    <section id="footer">
+<section id="footer">
 
-        <div class="container">
-            <div class="row">
+    <div class="container">
+        <div class="row">
             <div class="col-md-4 footer-box">
-            <img src="https://i.pinimg.com/originals/a7/09/c3/a709c392487900087077f136576cba6b.jpg"  >
+                <img src="https://i.pinimg.com/originals/a7/09/c3/a709c392487900087077f136576cba6b.jpg">
 
-            <p> “"My grandfather used to say that once in your life you need a doctor, a lawyer, a policeman, and a preacher. But every day, three times a day, you need a farmer."” </p>
-            <p>- Brenda Schoepp</p>
+                <p> “"My grandfather used to say that once in your life you need a doctor, a lawyer, a policeman, and a
+                    preacher. But every day, three times a day, you need a farmer."” </p>
+                <p>- Brenda Schoepp</p>
 
-            <p>We dedicate our website for Farmers who worked hard through day and night for us.</p>
-            <p>Please show your support by Registering 'AgroHelp'</p>
+                <p>We dedicate our website for Farmers who worked hard through day and night for us.</p>
+                <p>Please show your support by Registering 'AgroHelp'</p>
 
             </div>
             <div class="col-md-4 footer-box">
-                <p> <b>CONTACT US</b> </p>
+                <p><b>CONTACT US</b></p>
                 <P><i class="fa fa-map-marker"></i>AgroHelp,Bangalore</P>
-                <p><i class="fa fa-phone" ></i>+91 7411696822</p>
-                <p><i class="fa fa-envelope" ></i>agrohelp2023@gmail.com</p>
+                <p><i class="fa fa-phone"></i>+91 7411696822</p>
+                <p><i class="fa fa-envelope"></i>agrohelp2023@gmail.com</p>
 
-                </div>
-                <form class="col-md-4 footer-box" action="{% url 'subscribe' %}" method="POST">
-                    {% csrf_token %}
-                    <p> <b>Subscribe to 'AgroHelp'</b> </p>
-                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
+            </div>
+            <form class="col-md-4 footer-box" action="{% url 'subscribe' %}" method="POST">
+                {% csrf_token %}
+                <p><b>Subscribe to 'AgroHelp'</b></p>
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
             </form>
 
         </div>
 
 
-    </section>
+</section>
 
-    <!---------Smooth Scroll------->
+<!---------Smooth Scroll------->
 
-    <script src="smooth-scroll.js"></script>
+<script src="smooth-scroll.js"></script>
 
-    <script>
+<script>
         var scroll = new SmoothScroll('a[href*="#"]');
-    </script>
+
+</script>
 
 </body>
 <script>
@@ -928,5 +976,6 @@ border-bottom: 3px dashed #111;
     return SmoothScroll;
 
 })));
+
 </script>
 </html>
