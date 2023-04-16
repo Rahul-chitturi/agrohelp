@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Agro-Help</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+          rel="stylesheet">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+            *{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+               font-family: 'Roboto Flex', sans-serif;
+            }
+            body{
+                background-image: url(https://media.istockphoto.com/photos/mowing-the-lawn-a-perspective-of-green-grass-cut-strip-selective-picture-id950856192?b=1&k=20&m=950856192&s=170667a&w=0&h=BqUNt81lDvVTyEJc2MwkHuoOss1dwiOSK07qLUVvdRI=);
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .wrapper{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+             table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* Style the table header */
+      th {
+        text-align: left;
+        background-color: #f2f2f2;
+        padding: 8px;
+      }
+
+      /* Style the table data */
+      td {
+        text-align: left;
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      /* Style the table rows on hover */
+      tr:hover {background-color: #f5f5f5;}
+       tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* Style odd rows */
+      tr:nth-child(odd) {
+        background-color: #fff;
+      }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="registration_form">
+        <h1>Job List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Type of Job</th>
+          <th>Salary</th>
+          <th>Workforce</th>
+          <th>Pincode</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in jobs %}
+          <tr>
+            <td>{{ i.jobType }}</td>
+            <td>{{ i.salary }}</td>
+            <td>{{ i.workforce }}</td>
+            <td>{{ i.pincode }}</td>
+            <td>{{ request.user.username }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5">No jobs found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>

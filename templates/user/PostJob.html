@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Agro-Help</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+          rel="stylesheet">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+            *{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+               font-family: 'Roboto Flex', sans-serif;
+            }
+            body{
+                background-image: url(https://media.istockphoto.com/photos/mowing-the-lawn-a-perspective-of-green-grass-cut-strip-selective-picture-id950856192?b=1&k=20&m=950856192&s=170667a&w=0&h=BqUNt81lDvVTyEJc2MwkHuoOss1dwiOSK07qLUVvdRI=);
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .wrapper{
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            .registration_form{
+                background: #545871;
+                padding: 25px;
+                border-radius: 5px;
+                width: 400px;  
+            }
+            .registration_form .title{
+                text-align: center;
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #abd0ca;
+                letter-spacing: 5px;
+                font-weight: 700;
+            }
+            .form_wrap{
+                margin-top: 35px;
+            }
+            .form_wrap .input_wrap{
+                margin-bottom: 15px;
+            }
+            .form_wrap .input_wrap :last-child{
+                margin-bottom: 0;
+            }
+            .form_wrap .input_wrap label{
+                display: block;
+                margin-bottom: 3px;
+                color: #fff;
+
+            }
+            .form_wrap .input_grp{
+                display: flex;
+               justify-content: space-between;
+
+            }
+            .form_wrap .input_grp input[type="text"]{
+                width: 165px;
+                font-size: 17px;
+
+            }
+            .form_wrap select{
+                width: 100%;
+                border-radius: 3px;
+                border: 3px solid #9597a6;
+                padding: 10px;
+                outline: none;
+                font-size: 17px;
+            }
+            .form_wrap input[type="text"]{
+                width: 100%;
+                border-radius: 3px;
+                border: 3px solid #9597a6;
+                padding: 10px;
+                outline: none;
+                 font-size: 17px;
+            }
+            .form_wrap input[type="text"]:focus{
+                border-color: #ebd0ca;
+                 font-size: 17px;
+            }
+            
+            .btn-area1{
+                width: 100%;
+                background: #ebd0ca;
+                padding: 10px;
+                border: 0;
+                border-radius: 3px;
+                text-transform: uppercase;
+                text-align: center;
+                letter-spacing: 3px;
+                cursor: pointer;
+                outline:none;
+}
+
+.btn-area1:hover {
+    background: #58D68D;
+}
+.unit input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+}
+.btn-area i {
+    margin-right: 5px;
+}
+.input{
+        width: 100%;
+        outline: none;
+        border: 3px solid #d5dbd9;
+        font-size: 15px;
+        padding: 8px 10px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+}
+
+input[type="number"] {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="number"]:focus {
+  border: 1px solid #4CAF50;
+}
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="registration_form">
+        <div class="title">
+            Post Job Form
+        </div>
+        <form action="{% url 'postJob' %}" method="POST">
+            {% csrf_token %}
+            <div class="form_wrap">
+
+
+                <div class="input_wrap">
+                    <label for="pincode">Pincode</label>
+                   <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode" required="required">
+                </div>
+
+                <div class="input_wrap">
+                    <label for="salary">Salary</label>
+                    <input type="text" id="salary" name="salary" placeholder="Salary" required>
+                </div>
+
+                <div class="input_wrap">
+                    <label for="workforce">Workforce Size</label>
+                    <input type="number" id="workforce" name="workforce" value="1" min="1">
+                </div>
+
+                <div class="input_wrap">
+                    <label for="type">Job Type</label>
+                    <select name="type" id="type">
+                        <option value="Planting">Planting</option>
+                        <option value="Worker">Worker</option>
+                        <option value="Harvesting">Harvesting</option>
+                        <option value="Irrigation">Irrigation</option>
+                        <option value="Pruning">Pruning</option>
+                    </select>
+                </div>
+
+                <button class="btn-area1" type="submit"><i aria-hidden="true" class="fa fa-phone"></i> <span
+                        class="btn2">SUBMIT</span></button>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

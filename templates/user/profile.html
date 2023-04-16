@@ -58,6 +58,11 @@
                     <li style="--i:3"><a href="{% url 'emailUpdate' %}">Change Email</a></li>
                     <li style="--i:3"><a href="{% url 'changeNumber' %}">Change Number</a></li>
                     <li style="--i:3"><a href="{% url 'grassCutterRegistration' %}">Are you a grass cutter ?</a></li>
+                    {% if customer.role == 'farmer' %}
+                      <li style="--i:3"><a href="{% url 'postJob' %}">Post a job</a></li>
+                    {% elif customer.role == 'worker'%}
+                    <li style="--i:3"><a href="{% url 'ListJobs' %}">See Related a jobs</a></li>
+                    {% endif %}
                     <li style="--i:4"><a href="{% url 'userLogout' %}">Logout</a></li>
                 </ul>
             </div>
@@ -71,6 +76,8 @@
                 <div class="map">
                     <i class="ri-map-pin-fill ri"></i>
                     <span>{{customer.address}}</span>
+
+                    <span>&nbsp; Type: &nbsp; {{customer.role}}</span>
                 </div>
            <p></p>
             </div>
