@@ -128,6 +128,7 @@ class Job(mo.Model):
     pincode = mo.CharField(max_length=6, default='')
     salary = mo.IntegerField(default=350)
     workforce = mo.IntegerField(default=10)
+    hours = mo.IntegerField(default=10)
     jobType = mo.TextField(max_length=200, default='')
 
     def __str__(self):
