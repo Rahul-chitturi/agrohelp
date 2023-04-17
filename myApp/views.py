@@ -22,7 +22,7 @@ import re
 
 
 def home(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and not request.user.is_superuser:
         obj = customer.objects.get(user=request.user)
         return render(request, 'home.html', {'customer': obj})
     return render(request, 'home.html')
