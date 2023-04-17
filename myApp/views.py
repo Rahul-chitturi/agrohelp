@@ -1072,7 +1072,7 @@ def postJob(request):
             salary = request.POST['salary']
             workforce = request.POST['workforce']
             jobType = request.POST['type']
-
+            hours = request.POST['hours']
             userObj = User.objects.get(username=request.user.username)
 
             obj = Job(userObj=userObj, pincode=pincode,
